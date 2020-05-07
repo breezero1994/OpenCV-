@@ -18,11 +18,8 @@ import numpy as np　　
 import cv2 as cv
 ···
 ### 加载彩色灰度图像
-···
+```Ｐｙｔｈｏｎ
 img = cv.imread('messi5.jpg'，0)
-···
-```Java
-public static void main(String[] args){}
 ```
 
 ```javascript
