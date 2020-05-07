@@ -21,3 +21,10 @@ import cv2 as cv
 ···
 img = cv.imread('messi5.jpg'，0)
 ···
+```Java
+public static void main(String[] args){}
+```
+
+```javascript
+document.getElementById("ts").innerHTML="Hello"
+```
