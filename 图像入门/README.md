@@ -11,3 +11,13 @@
   cv.IMREAD_GRAYSCALE：以灰度模式加载图像  
   cv.IMREAD_UNCHANGED：加载图像，包括alpha通道  
 注意除了这三个标志，你可以分别简单地传递整数1、0或-1。  
+
+## 请参见下面的代码：
+''
+import numpy as np
+import cv2 as cv
+''
+### 加载彩色灰度图像
+''
+img = cv.imread('messi5.jpg'，0)
+''
