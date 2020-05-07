@@ -1,7 +1,7 @@
 目标
-  在这里，你将学习如何读取图像，如何显示图像以及如何将其保存回去
-  你将学习以下功能：cv.imread()，cv.imshow()，cv.imwrite()
-  （可选）你将学习如何使用Matplotlib显示图像
+在这里，你将学习如何读取图像，如何显示图像以及如何将其保存回去
+你将学习以下功能：cv.imread()，cv.imshow()，cv.imwrite()
+（可选）你将学习如何使用Matplotlib显示图像
 
 使用OpenCV
 读取图像
