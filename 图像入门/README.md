@@ -35,7 +35,7 @@ cv.destroyAllWindows()
 
 ## 写入图像
 使用函数**cv.imwrite**()保存图像。  
-第一个参数是文件名，第二个参数是要保存的图像。 cv.imwrite('messigray.png'，img)
+第一个参数是文件名，第二个参数是要保存的图像。 cv.imwrite('GEM.png'，img)
 这会将图像以PNG格式保存在工作目录中。
 ### 总结
 在下面的程序中，以灰度加载图像，显示图像，按s保存图像并退出，或者按ESC键直接退出而不保存。
