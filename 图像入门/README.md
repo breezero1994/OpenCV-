@@ -19,7 +19,7 @@ import cv2 as cv
 ```
 ### 加载彩色灰度图像
 ```Ｐｙｔｈｏｎ
-img = cv.imread('messi5.jpg'，0)
+img = cv.imread('GEM.jpg'，0)
 ```
 即使图像路径错误，它也不会引发任何错误，但是print(img)会给出None
 
@@ -32,3 +32,10 @@ cv.imshow('image'，img）
 cv.waitKey(0)
 cv.destroyAllWindows()
 ```
+
+## 写入图像
+使用函数**cv.imwrite**()保存图像。  
+第一个参数是文件名，第二个参数是要保存的图像。 cv.imwrite('messigray.png'，img)
+这会将图像以PNG格式保存在工作目录中。
+### 总结
+在下面的程序中，以灰度加载图像，显示图像，按s保存图像并退出，或者按ESC键直接退出而不保存。
