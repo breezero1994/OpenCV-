@@ -22,6 +22,3 @@ import cv2 as cv
 img = cv.imread('messi5.jpg'，0)
 ```
 
-```javascript
-document.getElementById("ts").innerHTML="Hello"
-```
