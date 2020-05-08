@@ -39,3 +39,18 @@ cv.destroyAllWindows()
 这会将图像以PNG格式保存在工作目录中。
 ### 总结
 在下面的程序中，以灰度加载图像，显示图像，按s保存图像并退出，或者按ESC键直接退出而不保存。
+
+## 使用Matplotlib
+Matplotlib是Python的绘图库，可为你提供多种绘图方法。你将在接下来的文章中看到它们。在这
+里，你将学习如何使用Matplotlib显示图像。你可以使用Matplotlib缩放图像，保存图像等。
+
+```
+import numpy as np
+import cv2 as cv
+from matplotlib import pyplot as plt
+img = cv.imread('messi5.jpg',0)
+plt.imshow(img, cmap = 'gray', interpolation = 'bicubic')
+plt.xticks([]), plt.yticks([]) # 隐藏 x 轴和 y 轴上的刻度值
+plt.show()
+```
+
