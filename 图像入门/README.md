@@ -21,7 +21,7 @@ import cv2 as cv
 ```Ｐｙｔｈｏｎ
 img = cv.imread('messi5.jpg'，0)
 ```
-即使图像路径错误，它也不会引发任何错误，但是 print img 会给出 None
+即使图像路径错误，它也不会引发任何错误，但是print(img)会给出None
 
 ### 显示图像
 使用函数**cv.imshow()**在窗口中显示图像。窗口自动适合图像尺寸。  
