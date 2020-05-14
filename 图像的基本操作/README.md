@@ -73,3 +73,19 @@ b = img [:, :, 0]
 ```
 img [:, :, 2] = 0
 ```
+### 警告
+cv.split() 是一项耗时的操作（就时间而言）。因此，仅在必要时才这样做。否则请进行Numpy索引。
+
+## 为图像设置边框（填充）
+如果要在图像周围创建边框（如相框），则可以使用 cv.copyMakeBorder() 。但是它在卷积运算，零填充等方面有更多应用。此函数采用以下参数：
+
+src - 输入图像
+top，bottom，left，right 边界宽度（以相应方向上的像素数为单位）
+borderType - 定义要添加哪种边框的标志。它可以是以下类型：
+cv.BORDER_CONSTANT - 添加恒定的彩色边框。该值应作为下一个参数给出。
+cv.BORDER_REFLECT - 边框将是边框元素的镜像，如下所示： fedcba | abcdefgh |
+hgfedcb
+**cv.BORDER_REFLECT_101**或 **cv.BORDER_DEFAULT**与上述相同，但略有变化，例
+如： gfedcb | abcdefgh | gfedcba
+**cv.BORDER_REPLICATE**最后一个元素被复制，像这样： aaaaaa | abcdefgh | hhhhhhh
+
