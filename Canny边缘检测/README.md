@@ -7,6 +7,10 @@ Canny Edge Detection是一种流行的边缘检测算法。它由John F. Canny�
 由于边缘检测容易受到图像中噪声的影响，因此第一步是使用5x5高斯滤波器消除图像中的噪声。我们已经在前面的章节中看到了这一点。
 ## 1. 查找图像的强度梯度
 然后使用Sobel核在水平和垂直方向上对平滑的图像进行滤波，以在水平方向(Gx)和垂直方向(Gy)上获得一阶导数。从这两张图片中，我们可以找到每个像素的边缘渐变和方向，如下所示：
+\[ \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} =
+1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}
+{1+\frac{e^{-8\pi}} {1+\ldots} } } } \]
+
 $$
 Edge\_Gradient \; (G) = \sqrt{G_x^2 + G_y^2} \\ Angle \; (\theta) = \tan^{-1} 
 \bigg(\frac{G_y}{G_x}\bigg)
