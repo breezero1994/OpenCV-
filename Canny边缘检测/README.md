@@ -11,6 +11,8 @@ Canny Edge Detection是一种流行的边缘检测算法。它由John F. Canny�
 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}
 {1+\frac{e^{-8\pi}} {1+\ldots} } } } \]
 
+行内公式： $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$
+
 $$
 Edge\_Gradient \; (G) = \sqrt{G_x^2 + G_y^2} \\ Angle \; (\theta) = \tan^{-1} 
 \bigg(\frac{G_y}{G_x}\bigg)
