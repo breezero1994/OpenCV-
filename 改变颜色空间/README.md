@@ -2,7 +2,7 @@
 * 在本教程中，你将学习如何将图像从一个色彩空间转换到另一个，像BGR↔灰色，BGR↔HSV等
 * 除此之外，我们还将创建一个应用程序，以提取视频中的彩色对象
 * 你将学习以下功能：cv.cvtColor，**cv.inRange**等。
-# 改变颜色空间
+## 改变颜色空间
 OpenCV中有超过150种颜色空间转换方法。但是我们将研究只有两个最广泛使用的,BGR↔灰色和BGR↔HSV。  
 对于颜色转换，我们使用cv函数。cvtColor(input_image, flag)，其中flag决定转换的类型。  
 对于BGR→灰度转换，我们使用标志cv.COLOR_BGR2GRAY。类似地，对于BGR→HSV，我们使用标志cv.COLOR_BGR2HSV。要获取其他标记，只需在Python终端中运行以下命令:
@@ -11,5 +11,41 @@ import cv2 as cv
 flags = [i for i in dir(cv) if i.startwith('COLOR_')]
 print(flags)
 ```
-## 注意
+### 注意
 HSV的色相范围为[0,179]，饱和度范围为[0,255]，值范围为[0,255]。不同的软件使用不同的规模。因此，如果你要将OpenCV值和它们比较，你需要将这些范围标准化。
+## 对象追踪
+现在我们知道了如何将BGR图像转换成HSV，我们可以使用它来提取一个有颜色的对象。在HSV中比在BGR颜色空间中更容易表示颜色。在我们的应用程序中，我们将尝试提取一个蓝色的对象。方法如下: - 取视频的每一帧 - 转换从BGR到HSV颜色空间 - 我们对HSV图像设置蓝色范围的阈值 - 现在单独提取蓝色对象，我们可以对图像做任何我们想做的事情。
+下面是详细注释的代码:
+```Python
+import cv2 as cv
+import numpy as np
+cap = cv.VideoCapture(0)
+while(1):
+    # 读取帧
+    _, frame = cap.read()
+    # 转换颜色空间 BGR 到 HSV
+    hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
+    # 定义HSV中蓝色的范围
+    lower_blue = np.array([110,50,50])
+    upper_blue = np.array([130,255,255])
+    # 设置HSV的阈值使得只取蓝色
+    mask = cv.inRange(hsv, lower_blue, upper_blue)
+    # 将掩膜和图像逐像素相加
+    res = cv.bitwise_and(frame,frame, mask= mask)
+    cv.imshow('frame',frame)
+    cv.imshow('mask',mask)
+    cv.imshow('res',res)
+    k = cv.waitKey(5) & 0xFF
+    if k == 27:
+        break
+cv.destroyAllWindows()
+```
+## 如何找到要追踪的HSV值？
+这是在stackoverflow.com上发现的一个常见问题。它非常简单，你可以使用相同的函数**cv.cvtColor()** 。你只需传递你想要的BGR值，而不是传递图像。例如，要查找绿色的HSV值，请在Python终端中尝试以下命令:
+```Python
+>>> green = np.uint8([[[0,255,0 ]]])
+>>> hsv_green = cv.cvtColor(green,cv.COLOR_BGR2HSV)
+>>> print( hsv_green )
+[[[ 60 255 255]]]
+```
+现在把 [H- 10,100,100] 和 [H+ 10,255, 255] 分别作为下界和上界。除了这个方法之外，你可以使用任何图像编辑工具(如GIMP或任何在线转换器)来查找这些值，但是不要忘记调整HSV范围。
